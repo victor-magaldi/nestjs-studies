@@ -1,5 +1,6 @@
-import { Controller, Get, Post, Req } from '@nestjs/common';
-import { Request } from 'express';
+import { Controller, Get, Post, Req, Res } from '@nestjs/common';
+import { Request, Response } from 'express';
+import { listCats } from './types';
 
 @Controller('cats')
 export class CatsController {
@@ -8,8 +9,7 @@ export class CatsController {
     return 'This action adds a new cat';
   }
   @Get()
-  findAll(@Req() request: Request, respo): string {
-    console.log('request', request);
-    return 'This action returns all cats';
+  findAll(@Req() request: Request, @Res() res: Response) {
+    return res.json([{ name: 'string', age: 15 }]);
   }
 }
