@@ -10,6 +10,7 @@ export class CatsController {
   }
   @Get()
   findAll(@Req() request: Request, @Res() res: Response) {
-    return res.json([{ name: 'string', age: 15 }]);
+    const cats: listCats = [{ name: 'string', age: 15 }];
+    return res.json(cats);
   }
 }
